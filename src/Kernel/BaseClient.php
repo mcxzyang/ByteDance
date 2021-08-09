@@ -162,7 +162,7 @@ class BaseClient
         }
         $response = $this->performRequest($url, $method, $options);
 
-        \Log::info(sprintf('Url: %s, Method: %s, options: %s', $url, $method, json_encode($options)))
+        \Log::info(sprintf('Url: %s, Method: %s, options: %s', $url, $method, json_encode($options)));
 
         return $returnRaw ? $response : $this->castResponseToType($response, $this->app->config->get('response_type'));
     }
