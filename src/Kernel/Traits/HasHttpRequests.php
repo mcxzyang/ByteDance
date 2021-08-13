@@ -137,7 +137,7 @@ trait HasHttpRequests
     public function request($url, $method = 'GET', $options = []): ResponseInterface
     {
 
-        \Log::info('url: %s, method: %s, options: %s', $url, $method, json_encode($options));
+        \Log::info(sprintf('url: %s, method: %s, options: %s', $url, $method, json_encode($options)));
         $method = strtoupper($method);
         $options = array_merge(self::$defaults, $options, ['handler' => $this->getHandlerStack()]);
         $options = $this->fixJsonIssue($options);
