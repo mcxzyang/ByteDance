@@ -49,7 +49,6 @@ class BaseClient
     {
         $this->app = $app;
         $this->accessToken = $accessToken ?? $this->app['access_token'];
-        \Log::info(json_encode($this->accessToken));
     }
 
     /**
@@ -159,6 +158,7 @@ class BaseClient
     public function request(string $url, string $method = 'GET', array $options = [], $returnRaw = false)
     {
         if (empty($this->middlewares)) {
+            \Log::info('come');
             $this->registerHttpMiddlewares();
         }
         $response = $this->performRequest($url, $method, $options);
