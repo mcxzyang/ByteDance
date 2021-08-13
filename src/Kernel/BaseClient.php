@@ -49,7 +49,7 @@ class BaseClient
     {
         $this->app = $app;
         $this->accessToken = $accessToken ?? $this->app['access_token'];
-        \Log::info($this->accessToken);
+        \Log::info(json_encode($this->accessToken));
     }
 
     /**
