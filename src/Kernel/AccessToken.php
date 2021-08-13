@@ -92,7 +92,6 @@ abstract class AccessToken implements AccessTokenInterface
             return $cached;
         }
         $token = $this->requestToken($this->getCredentials(), true);
-        \Log::info('token', json_encode($token));
         $this->setToken($token, $token['expires_in'] ?? 7200);
 
         return $token;
