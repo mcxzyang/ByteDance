@@ -39,8 +39,8 @@ class Client extends BaseClient
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */
-    public function create(string $appname, string $path = null, string $width = null, string $line_color = null, string $background = null, string $set_icon = null)
+    public function create(string $appname, $options = [])
     {
-        return $this->httpPost('api/apps/qrcode', ['appname'=>$appname, 'path' => $path, 'width'=>$width, 'line_color'=>$line_color, 'background'=>$background, 'set_icon'=>$set_icon]);
+        return $this->httpPost('api/apps/qrcode', array_merge(['appname'=>$appname], $options));
     }
 }
